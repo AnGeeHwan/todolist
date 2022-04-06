@@ -11,12 +11,14 @@ function TodoInsert({ onInsert, id }) {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    onInsert({
-      id: id,
-      doText: insertValue,
-      checked: false,
-    });
-    setInsertValue("");
+    if (insertValue !== "") {
+      onInsert({
+        id: id,
+        doText: insertValue,
+        checked: false,
+      });
+      setInsertValue("");
+    }
   };
 
   return (
